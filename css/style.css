@@ -1,0 +1,20 @@
+h1 {
+    color: orange;
+  }
+
+  nav{
+      padding: 20px;
+      color:orange;
+      float: right;
+  }
+
+  
+p{
+    text-align: center;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
