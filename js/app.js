@@ -2,120 +2,82 @@
 
 let hour = ['6am', '7am', '8am','9am','10am','11am','12am','1pm','2pm','3pm','4pm','5pm','6pm','7pm' ];
 
+let nameOfStore = [];
+function stores (name, minNumCustm,maxNumCustm,){
+this.name= name;
+this.minNumCustm= minNumCustm;
+this.maxNumCustm= maxNumCustm;
+this.avarageOfCookie= avarageOfCookie;
+this.numCookiPerHour= [];
+this.total = total;
+this.customerPerHour = [];
+nameOfStore.push(this);
+}
+
+nameOfStore.prototype.cusPerHour = function(){
+for (let i = 0; i < hour.length; i++) {
+let time = Math.floor( Math.Random() * (this.maxNumCustm - this.minNumCustm + 1 ) + this.minNumCustm);
+this.customerPerHour.push(time);
+}
+}
+
+
+nameOfStore.prototype.CookiPerHour = function(){
+for (let i= 0; i < hour.length; i++) {
+    
+let everyHour = Math.ceil( this.avarageOfCookie * this.customerPerHour[i]);
+this.numCookiPerHour.push(everyHour);
+this.total += everyHour;
+}
+}
+
+nameOfStore.prototype.render = function(){
+let rowTable = document.createElement('tr');
+        tableElement.appendChild(rowTable);
+let tableData = document.createElement('td');
+       rowTable.appendChild(tableData);
+tableData.textContent = this.name;
+ for (let i = 0; i < hour.length; i++) {
+            let dataTable = document.createElement('td');
+            rowTable.appendChild(dataTable);
+dataTable.textContent = this.numCookiPerHour[i];
+}
+let dataTable = document.createElement('td');
+            rowTable.appendChild(dataTable);
+dataTable.textContent = this.total;
+}
+
 let parentElement = document.getElementById('cookiesSales');
+let articleElement = document.createElement('article');
+parentElement.appendChild(articleElement);
+let tableElement = document.createElement('table');
+parentElement.appendChild(tableElement);
 
-let salmonSeatle = {
-    name : 'seatle',
-    minNumCustm:23,
-    maxNumCustm:65,
-    numCookiPerHour:[],
-    avarageOfCookie:6.3,
-    total:0 ,
-    numCustomer: function(){
-        for (let  i= 0; i < hour.length; i++) {
-            
-            let cookies = Math.ceil( getRandomNumber(this.minNumCustm, 
-                this.maxNumCustm) * this.avarageOfCookie);
-                this.numCookiPerHour.push(cookies);
-                this.total += cookies;
-            
-        }
-    },
-    render: function() {
-        let h2 = document.createElement('h2');
-        parentElement.appendChild(h2);
-        h2.textContent= this.name;
 
-        let ul = document.createElement('ul');
-        parentElement.appendChild(ul);
+function hRow (){
+let rowTable = document.createElement('tr');
+        tableElement.appendChild(rowTable);
+let headTable = document.createElement('th');
+        tableElement.appendChild(headTable);
+headTable.textContent =null;
 
-        for (let i = 0; i < hour.length; i++) {
-            let li = document.createElement('li');
-            ul.appendChild(li);
-            li.textContent= ` ${hour[i]}: ${this.numCookiPerHour[i] } cookies `;
-            
-        }
-        let total = document.createElement('li');
-        ul.appendChild(total);
-        li.textContent= ` total: ${this.total} cookies `;
-    }
-}
+for (let x = 0; x < hour.length; x++) {
+            let tableHeaderElement = document.createElement('th');
+            rowTable.appendChild(tableHeaderElement);
+dataTable.textContent = this.hour[x];
 
-let salmontokoyo = {
-    name : 'tokyo',
-    minNumCustm:3,
-    maxNumCustm:24,
-    numCookiPerHour:[],
-    avarageOfCookie:1.2,
-    total:0 ,
-
-    numCustomer: function(){
-        for (let i = 0; i < hour.length; i++) { 
-            let cookies = Math.ceil( getRandomNumber(this.minNumCustm, 
-                this.maxNumCustm) * this.avarageOfCookie);
-                this.numCookiPerHour.push(cookies);
-                this.total += cookies;
-            
-        }
-    },
-    render: function() {
-        let h2 = document.createElement('h2');
-        parentElement.appendChild(h2);
-        h2.textContent= this.name;
-
-        let ul = document.createElement('ul');
-        parentElement.appendChild(ul);
-
-        for (let i = 0; i < hour.length; i++) {
-            let li = document.createElement('li');
-            ul.appendChild(li);
-            li.textContent= ` ${hour[i]} : ${this.numCookiPerHour[i] } cookies `;
-            
-        }
-        let total = document.createElement('li');
-        ul.appendChild(total);
-        li.textContent= ` total: ${this.total} cookies `;
-    }
+let tableHeaderElement2 = document.createElement('th');
+            rowTable.appendChild(tableHeaderElement2);
+tableHeaderElement2.textContent = " total of day sales"
 }
 
 
+function rRow (){
+let rowTable = document.createElement('tr');
+        tableElement.appendChild(rowTable);
+let tableData = document.createElement('th');
+        tableElement.appendChild(tableData);
+tableData.textContent ="total";
 
-
-let salmonDubai = {
-    name : 'Dubai',
-    minNumCustm:11,
-    maxNumCustm:38,
-    numCookiPerHour:[],
-    avarageOfCookie: 3.7,
-    total:0 }
-
-    let paris = {
-        name : 'paris',
-        minNumCustm:20,
-        maxNumCustm:38,
-        numCookiPerHour:[],
-        avarageOfCookie:2.3,
-        total:0 }
-
-        let lima = {
-            name : 'lima',
-            minNumCustm:2,
-            maxNumCustm:216,
-            numCookiPerHour:[],
-            avarageOfCookie:4.6,
-            total:0} 
-
-            salmonSeatle.numCustomer();
-            salmonSeatle.render();
-
-            salmontokoyo.numCustomer();
-            salmontokoyo.render();
-
-            
-function getRandomNumber(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-  }
-
-        
+}
+}
