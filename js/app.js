@@ -129,3 +129,4 @@ function cookiesfooter() {
   cookiesTotaloftheTotals.textContent = totalofCookiesTotal();
 }
 cookiesfooter();
+
